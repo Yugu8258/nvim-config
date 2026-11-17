@@ -199,7 +199,7 @@ mv ~/.config/nvim ~/.config/nvim.bak
 
 克隆仓库
 ```bash
-git clone <your-repo-url> ~/.config/nvim
+git clone https://github.com/Yugu8258/nvim-config.git ~/.config/nvim
 ```
 
 打开 nvim，lazy 自动下载插件
