@@ -42,6 +42,8 @@ return {
 
         -- 消息路由规则: 过滤, 屏蔽不需要的刷屏消息
         routes = {
+            -- 屏蔽LSP索引进度(rust-analyzer indexing 等进度提示), 保留报错, 诊断, hover
+            { filter = { event = "lsp", kind = "progress" }, opts = { skip = true } },
             -- 屏蔽搜索计数提示(xx matches)
             { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
             -- 屏蔽保存,复制,撤销重做这类无关消息
@@ -59,8 +61,6 @@ return {
                 },
                 opts = { skip = true },
             },
-            -- 【可选】仅屏蔽LSP进度弹窗(索引,加载提示),保留报错,诊断信息
-            -- { filter = { event = "lsp", kind = "progress" }, opts = { skip = true } },
         },
 
         -- 悬浮命令行样式配置
@@ -76,3 +76,4 @@ return {
         },
     },
 }
+
