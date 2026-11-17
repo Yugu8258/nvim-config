@@ -52,6 +52,7 @@ Minimal & restrained, no redundant animations, optimized for Neovide GUI.
 - **Neovide Exclusive**: frosted transparent window, railgun cursor, macOS Command bindings, font zoom
 
 ## 📁 Structure
+```bash
 .
 ├── ftplugin
 │   ├── cpp.lua
@@ -103,6 +104,8 @@ Minimal & restrained, no redundant animations, optimized for Neovide GUI.
 │       ├── undotree.lua
 │       └── virtcolumn.lua
 └── README.md
+
+```
 
 
 ## ⌨️ 核心快捷键
