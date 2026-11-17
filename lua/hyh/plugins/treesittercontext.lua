@@ -12,7 +12,7 @@ return {
       multiline_threshold = 20, -- 单行上下文阈值
       trim_scope = "outer",
       mode = "cursor",        -- cursor / topline
-      separator = nil,        -- 分隔线, 比如 "─"
+      separator = "-",        -- 分隔线, 比如 "─"
       zindex = 20,
     })
 
