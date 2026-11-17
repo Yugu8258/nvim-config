@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,                -- Treesitter 不支持懒加载，必须立即加载
+    lazy = false,                -- Treesitter 不支持懒加载, 必须立即加载
     build = ":TSUpdate",         -- 更新插件时自动同步解析器
     config = function()
       -- 新版 nvim-treesitter 的初始化方式
