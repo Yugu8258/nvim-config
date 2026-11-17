@@ -4,6 +4,8 @@
 
 -- 关闭内置 netrw 文件管理器横幅
 vim.g.netrw_banner = 0
+-- 光标形状：n=普通模式, v=可视模式, i=插入模式, c=命令行模式，统一为 block（块状）
+vim.opt.guicursor = "n-v-i-c:block"
 
 -- ------------------------------
 -- 行号显示
