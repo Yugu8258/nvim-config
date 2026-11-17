@@ -18,7 +18,7 @@ return {
 				styles          = {
 					bold         = true,      -- 粗体
 					italic       = false,     -- 关闭斜体
-					transparency = true,      -- 透明背景（新版统一开关, 替代已移除的 disable_background / disable_float_background）
+					transparency = true,      -- 透明背景 (新版统一开关, 替代已移除的 disable_background / disable_float_background)
 				},
 
 				-- 高亮组微调: 给指定组单独覆写属性
