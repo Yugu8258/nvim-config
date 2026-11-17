@@ -45,7 +45,7 @@ require("lazy").setup({
 	-- 相当于加载 lua/hyh/plugins/ 目录下的所有 .lua 文件(init.lua 或各插件文件)
 	{ import = "hyh.plugins" },
 	-- 加载 lua/hyh/plugins/lsp/ 目录下的 LSP 相关插件配置
-	{ import = "hyh.plugins.lsp" },
+	-- { import = "hyh.plugins.lsp" },
 }, {
 	-- 9. lazy.nvim 自身的全局选项
 	checker = {
