@@ -13,14 +13,14 @@ return {
         local on_attach = function(client, bufnr)
             local opts = { buffer = bufnr, noremap = true, silent = true }
 
-            vim.keymap.set("n", "gd",        vim.lsp.buf.definition,       opts) -- 跳转到定义
-            vim.keymap.set("n", "gD",        vim.lsp.buf.declaration,      opts) -- 跳转到声明
-            vim.keymap.set("n", "gr",        vim.lsp.buf.references,       opts) -- 查看引用
-            vim.keymap.set("n", "gi",        vim.lsp.buf.implementation,   opts) -- 跳转到实现
-            vim.keymap.set("n", "K",         vim.lsp.buf.hover,            opts) -- 悬浮提示文档
-            vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename,           opts) -- 重命名符号
-            vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action,      opts) -- 代码修复/操作
-            vim.keymap.set("n", "<space>f",  function()
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- 跳转到定义
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- 跳转到声明
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- 查看引用
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- 跳转到实现
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)      -- 悬浮提示文档
+            vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts) -- 重命名符号
+            vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts) -- 代码修复/操作
+            vim.keymap.set("n", "<space>f", function()
                 vim.lsp.buf.format({ async = true })
             end, opts) -- 格式化代码(异步)
         end
@@ -30,38 +30,38 @@ return {
             lua_ls = { -- Lua LSP
                 settings = {
                     Lua = {
-                        runtime = { version = "LuaJIT" },           -- 使用Neovim内置LuaJIT
-                        diagnostics = { globals = { "vim" } },      -- 识别vim全局变量, 消除警告
-                        workspace = { checkThirdParty = false },    -- 关闭第三方库检测, 减少弹窗
-                        telemetry = { enable = false },             -- 关闭遥测上报
+                        runtime = { version = "LuaJIT" }, -- 使用Neovim内置LuaJIT
+                        diagnostics = { globals = { "vim" } }, -- 识别vim全局变量, 消除警告
+                        workspace = { checkThirdParty = false }, -- 关闭第三方库检测, 减少弹窗
+                        telemetry = { enable = false }, -- 关闭遥测上报
                     },
                 },
             },
-            ts_ls = {},                     -- JavaScript / TypeScript LSP
-            html = {},                      -- HTML LSP
-            cssls = {},                     -- CSS LSP
-            tailwindcss = {},               -- TailwindCSS LSP
+            ts_ls = {}, -- JavaScript / TypeScript LSP
+            html = {}, -- HTML LSP
+            cssls = {}, -- CSS LSP
+            tailwindcss = {}, -- TailwindCSS LSP
             gopls = { -- Go LSP
                 settings = {
                     gopls = {
                         completeUnimported = true, -- 自动补全未导入包
-                        usePlaceholders = true,    -- 函数参数补全占位符
+                        usePlaceholders = true, -- 函数参数补全占位符
                     },
                 },
             },
-            angularls = {},                 -- Angular LSP
-            emmet_language_server = {},     -- Emmet 缩写补全
-            marksman = {},                  -- Markdown LSP
-            rust_analyzer = {},             -- Rust LSP
-            zls = {},                       -- Zig LSP (版本必须和本地Zig严格匹配)
-            bashls = {},                    -- Bash / Shell LSP
+            angularls = {},    -- Angular LSP
+            emmet_language_server = {}, -- Emmet 缩写补全
+            marksman = {},     -- Markdown LSP
+            rust_analyzer = {}, -- Rust LSP
+            zls = {},          -- Zig LSP (版本必须和本地Zig严格匹配)
+            bashls = {},       -- Bash / Shell LSP
             -- clangd：系统全局安装，不由mason管理
             clangd = {
                 cmd = {
                     "clangd",
-                    "--background-index",       -- 后台索引工程，提升补全速度
-                    "--clang-tidy",             -- 开启clang-tidy静态检查
-                    "--header-insertion=never" -- 禁止自动插入头文件(避免和你原有代码冲突)
+                    "--background-index", -- 后台索引工程，提升补全速度
+                    "--clang-tidy", -- 开启clang-tidy静态检查
+                    "--header-insertion=never", -- 禁止自动插入头文件(避免和你原有代码冲突)
                 },
             },
         }
@@ -85,4 +85,3 @@ return {
         -- vim.lsp.enable("neocmake")
     end,
 }
-

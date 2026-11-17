@@ -5,12 +5,12 @@
 return {
     {
         "windwp/nvim-autopairs",
-        event = "InsertEnter",          -- 延迟加载: 首次进入插入模式才加载
-        dependencies = {                -- 可选: 若使用 nvim-cmp, 可在此声明依赖(也可不写, 下方用 pcall 兜底)
+        event = "InsertEnter", -- 延迟加载: 首次进入插入模式才加载
+        dependencies = { -- 可选: 若使用 nvim-cmp, 可在此声明依赖(也可不写, 下方用 pcall 兜底)
             -- "hrsh7th/nvim-cmp",
         },
         config = function()
-            -- 安全加载插件，避免插件缺失时报错
+            -- 安全加载插件, 避免插件缺失时报错
             local ok, autopairs = pcall(require, "nvim-autopairs")
             if not ok then
                 return
@@ -18,7 +18,7 @@ return {
 
             -- 主配置
             autopairs.setup({
-                check_ts = true,        -- 开启 treesitter 智能判断
+                check_ts = true, -- 开启 treesitter 智能判断
                 ts_config = {
                     lua = { "string" }, -- lua 字符串里不配对
                     -- java = false,       -- java 不使用 treesitter 判断

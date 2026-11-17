@@ -9,7 +9,7 @@
 local opts = { noremap = true, silent = true }
 
 -- 空格作为全局前缀键
-vim.g.mapleader      = " "
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- ----------------------------------------------------------------------------
@@ -21,9 +21,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "上移选中代码" })
 -- ----------------------------------------------------------------------------
 -- 2. 光标滚动体验优化(光标始终居中, 不晃眼)
 -- ----------------------------------------------------------------------------
-vim.keymap.set("n", "J",      "mzJ'z",   { desc = "合并下一行，光标不动" }) -- 合并行不跳光标
-vim.keymap.set("n", "<C-d>",  "<C-d>zz", { desc = "下翻页，居中" })         -- 半屏下滚 + 居中
-vim.keymap.set("n", "<C-u>",  "<C-u>zz", { desc = "上翻页，居中" })         -- 半屏上滚 + 居中
+vim.keymap.set("n", "J", "mzJ'z", { desc = "合并下一行，光标不动" }) -- 合并行不跳光标
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "下翻页，居中" }) -- 半屏下滚 + 居中
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "上翻页，居中" }) -- 半屏上滚 + 居中
 
 -- ----------------------------------------------------------------------------
 -- 3. 搜索优化(跳转到结果时自动居中, 更易读)
@@ -41,15 +41,15 @@ vim.keymap.set("v", ">", ">gv", vim.tbl_extend("force", opts, { desc = "右缩�
 -- 5. 剪切板超级增强(不污染剪贴板, Neovim 最强特性之一)
 -- ----------------------------------------------------------------------------
 vim.keymap.set("x", "<leader>p", [["_dp]], vim.tbl_extend("force", opts, { desc = "粘贴不覆盖剪贴板" }))
-vim.keymap.set("v", "p",         '"_dp',   vim.tbl_extend("force", opts, { desc = "可视化粘贴，不污染剪贴板" }))
+vim.keymap.set("v", "p", '"_dp', vim.tbl_extend("force", opts, { desc = "可视化粘贴，不污染剪贴板" }))
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], vim.tbl_extend("force", opts, { desc = "删除不进剪贴板" }))
-vim.keymap.set("n", "x",         '"_x',    vim.tbl_extend("force", opts, { desc = "单字符删除不进剪贴板" }))
+vim.keymap.set("n", "x", '"_x', vim.tbl_extend("force", opts, { desc = "单字符删除不进剪贴板" }))
 
 -- ----------------------------------------------------------------------------
 -- 6. 退出 & 清除搜索高亮
 -- ----------------------------------------------------------------------------
-vim.keymap.set("i", "<C-c>", "<Esc>",      { desc = "插入模式快速退出" }) -- Ctrl+C = Esc
-vim.keymap.set("n", "<C-c>", ":nohl<CR>",  { desc = "清除搜索高亮" })     -- 一键清高亮
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "插入模式快速退出" }) -- Ctrl+C = Esc
+vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "清除搜索高亮" }) -- 一键清高亮
 
 -- ----------------------------------------------------------------------------
 -- 7. 禁用无用/干扰按键
@@ -60,42 +60,42 @@ vim.keymap.set("n", "Q", "<Nop>", { desc = "禁用无用的 Q 键" }) -- 禁用 
 -- 8. 一键全局替换(光标下单词)
 -- ----------------------------------------------------------------------------
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], {
-	desc = "全局替换光标下单词",
+    desc = "全局替换光标下单词",
 })
 
 -- ----------------------------------------------------------------------------
 -- 9. 快捷操作
 -- ----------------------------------------------------------------------------
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {
-	silent = true,
-	desc = "给当前文件加执行权限",
+    silent = true,
+    desc = "给当前文件加执行权限",
 })
 
 vim.keymap.set("n", "<leader>fp", function()
-	local path = vim.fn.expand("%:~")
-	vim.fn.setreg("+", path)
-	vim.notify("✅ 已复制路径: " .. path)
+    local path = vim.fn.expand("%:~")
+    vim.fn.setreg("+", path)
+    vim.notify("✅ 已复制路径: " .. path)
 end, { desc = "复制文件路径到剪贴板" })
 
 -- ----------------------------------------------------------------------------
 -- 10. 复制时高亮提示(视觉反馈)
 -- ----------------------------------------------------------------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("yank-highlight", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank({ timeout = 120 })
-	end,
+    group = vim.api.nvim_create_augroup("yank-highlight", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank({ timeout = 120 })
+    end,
 })
 
 -- ----------------------------------------------------------------------------
 -- 11. 禁用方向键(强制使用 hjkl, 专业玩家必备)
 -- ----------------------------------------------------------------------------
 local function disable_arrows()
-	for _, mode in ipairs({ "n", "i", "v" }) do
-		vim.keymap.set(mode, "<up>", "<Nop>", opts)
-		vim.keymap.set(mode, "<down>", "<Nop>", opts)
-		vim.keymap.set(mode, "<left>", "<Nop>", opts)
-		vim.keymap.set(mode, "<right>", "<Nop>", opts)
-	end
+    for _, mode in ipairs({ "n", "i", "v" }) do
+        vim.keymap.set(mode, "<up>", "<Nop>", opts)
+        vim.keymap.set(mode, "<down>", "<Nop>", opts)
+        vim.keymap.set(mode, "<left>", "<Nop>", opts)
+        vim.keymap.set(mode, "<right>", "<Nop>", opts)
+    end
 end
 disable_arrows()

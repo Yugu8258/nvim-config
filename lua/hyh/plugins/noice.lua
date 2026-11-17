@@ -43,7 +43,7 @@ return {
         -- 消息路由规则: 过滤, 屏蔽不需要的刷屏消息
         routes = {
             -- 屏蔽LSP索引进度(rust-analyzer indexing 等进度提示), 保留报错, 诊断, hover
-            { filter = { event = "lsp", kind = "progress" }, opts = { skip = true } },
+            { filter = { event = "lsp", kind = "progress" },          opts = { skip = true } },
             -- 屏蔽搜索计数提示(xx matches)
             { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
             -- 屏蔽保存,复制,撤销重做这类无关消息
@@ -76,4 +76,3 @@ return {
         },
     },
 }
-
